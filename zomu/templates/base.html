@@ -1,0 +1,16 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    {% block extend_style %}{% endblock extend_style %}
+</head>
+<body>
+    {% block main_content %}{% endblock main_content %}
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    {% block extend_script %}{% endblock extend_script%}
+</body>
+</html>
