@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load static custom_filters breadcrumb_tags %}
+
+{% block extend_style %}
+<style>
+    a {
+        text-decoration:none;
+    }
+</style>
+{% endblock extend_style %}
+
+{% block main_content %}
+{% load static custom_filters %}
+
+    {% breadcrumb current_folder %}
+
+    <div class="card mb-3">
+        <div class="card-header">Subfolders:</div>
+        {% if subfolders %}
+            <ul class="list-group list-group-flush">
+            {% for item in subfolders %}
+                <li class="list-group-item">
+                    <a href="{% url 'uploader:show_folder' item.id %}">{{ item.name }}</a>
+                </li>
+            {% endfor %}
+            </ul>
+        {% else %}
+        <div class="card-body">
+            There is no subfolder here.
+        </div>
+        {% endif %}
+    </div>
+    <div class="card">
+        <div class="card-header">Files:</div>
+        {% if files %}
+            <ul class="list-group list-group-flush">
+            {% for item in files %}
+                <li class="list-group-item">
+                    <a href="{{ item.file.url }}">{{ item.file.name }}</a>
+                </li>
+            {% endfor %}
+            </ul>
+        {% else %}
+        <div class="card-body">
+            There is no file here.
+        </div>
+        {% endif %}
+    </div>
+{% endblock main_content %}

@@ -1,0 +1,14 @@
+<div class="card mb-3">
+    <div class="card-header">Folder navigation:</div>
+    <div class="card-body">
+        <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+            {% for breadcrumb in breadcrumb_list %}
+                <li class="breadcrumb-item">
+                    <a href="{{ breadcrumb.url }}">{{ breadcrumb.name }}</a>
+                </li>
+            {% endfor %}
+            </ol>
+        </nav>
+    </div>
+</div>
